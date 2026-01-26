@@ -1,0 +1,12 @@
+on:
+  - check_run
+  - check_suite
+
+jobs:
+  checks:
+    runs-on: ubuntu-slim
+    steps:
+      - env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          echo "Event Name: ${EVENT_NAME}"
