@@ -9,6 +9,8 @@ jobs:
     - shell: bash
       env:
         EVENT_NAME: ${{ github.event_name }}
+        TARGET_ENV: ${{ vars.TARGET_ENVIRONMENT }}
       run: |
         echo "Hello"
         echo "Event Name: ${EVENT_NAME}"
+        echo "target env: ${TARGET_ENV}"
