@@ -1,0 +1,14 @@
+on:
+  - pull_request
+  - pull_request_target
+  - push
+jobs:
+  hello:
+    runs-on: ubuntu-slim
+    steps:
+    - shell: bash
+      env:
+        EVENT_NAME: ${{ github.event_name }}
+      run: |
+        echo "Hello"
+        echo "Event Name: ${EVENT_NAME}"
