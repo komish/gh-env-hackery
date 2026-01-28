@@ -1,0 +1,19 @@
+on:
+  pull_request_target:
+    types: 
+      labeled
+  
+
+jobs:
+  handlelabel:
+    runs-on: ubuntu-slim
+    steps:
+      - env:
+          REF: ${{ github.ref }}
+          BASE: ${{ github.event.pull_request.base }}
+          HEAD: ${{ github.event.pull_request.head }}
+        run: |
+          echo "Hello World"
+          echo "REF>> ${REF}"
+          echo "BASE>> ${BASE}"
+          echo "HEAD>> ${HEAD}"
